@@ -1,0 +1,16 @@
+venv/
+.venv/
+env/
+.env
+*.pyc
+__pycache__/
+.env
+!.env.example
+app.log
+*.sqlite3
+*.db
+.idea/
+.vscode/
+.pytest_cache/
+alembic/versions/__pycache__/
+docker-compose.override.yml
