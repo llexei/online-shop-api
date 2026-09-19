@@ -113,6 +113,20 @@ Typical flow:
 
 If stock is insufficient, the API returns 409.
 
+## Create an admin
+
+Registration creates a regular user. Promote an admin manually:
+
+```bash
+docker compose exec db psql -U postgres -d shop
+```
+
+```SQL
+UPDATE users
+SET role = 'admin'
+WHERE email = 'you@example.com';
+```
+
 ## Tests
 
 ```bash 

@@ -1,13 +1,14 @@
 from celery import Celery
 from dotenv import load_dotenv
+from app.core.config import settings
 from app.core.logging import setup_logging
 
 setup_logging()
 load_dotenv()
 celery_app = Celery(
     "task_manager",
-    broker="redis://localhost:6379/1",
-    backend="redis://localhost:6379/2",
+    broker=f"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}/1",
+    backend=f"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}/2",
     include=["app.tasks.email_tasks"],
 )
 

@@ -111,6 +111,19 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 Если товара не хватает, API возвращает 409.
 
+## Создание админа
+
+Регистрация создаёт только обычного пользователя. Админа нужно назначить вручную.
+
+```bash
+docker compose exec db psql -U postgres -d shop
+```
+
+```SQL
+UPDATE users
+SET role = 'admin'
+WHERE email = 'you@example.com';
+```
 ## Тесты
 ```bash 
 pytest 

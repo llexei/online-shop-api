@@ -2,7 +2,7 @@ from fastapi import Depends
 from redis import Redis
 import redis
 from typing import Annotated
-from core.config import settings
+from app.core.config import settings
 
 
 def get_redis():
